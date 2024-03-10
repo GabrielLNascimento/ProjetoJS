@@ -17,5 +17,12 @@ function clicar() {
             res.innerHTML += `${c} \u{1F449}`
         }
         res.innerHTML += ` \u{1F3C1}`
+        
+        if(i > f){
+            for(let c = i; c >= f; c = c - p){
+                res.innerHTML += `${c} \u{1F449}`
+            }
+        }
     }
+    
 }
