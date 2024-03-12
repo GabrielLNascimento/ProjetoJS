@@ -50,9 +50,13 @@ function finalizar() {
         res.innerHTML = ''
         res.innerText += `Possuem ${add} elementos nesta lista!`
     
-        for (let pos in valores) {
-            if (valores[pos] > maior)
-        } // continua aq
+        maior = -1
+        for(let pos = 0; pos < valores.length; pos = pos + 1) {
+            valores.sort((a, b) => a - b)
+            maior = maior + 1
+        }
+        res.innerHTML += `<br>O número maior é: ${valores[maior]}`
+        res.innerHTML += `<br>O número menor é: ${valores[0]}`
     }
 
     
