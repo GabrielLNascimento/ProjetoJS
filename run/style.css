@@ -1,45 +1,46 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+margin: 0;
+padding: 0;
 }
 
 #game{
-    width: 500px;
-    height: 200px;
-    border: 1px solid black;
+width: 80%; /* Definindo a largura como 80% da largura da viewport */
+max-width: 500px; /* Limitando a largura máxima a 500px */
+height: 40vh; /* Definindo a altura como 40% da altura da viewport */
+border: 1px solid black;
+margin: 0 auto; /* Centralizando horizontalmente */
 }
 
 #personagem{
-    width: 20px;
-    height: 50px;
-    background-color: red;
-    position: relative;
-    top: 150px;
+width: 4%; /* Definindo a largura como 4% da largura do elemento pai (#game) */
+height: 25%; /* Definindo a altura como 25% da altura do elemento pai (#game) */
+background-color: red;
+position: relative;
+top: 75%; /* Definindo a posição vertical */
 }
 
 .animar{
-    animation: personagem 500ms infinite;
+animation: personagem 500ms infinite;
 }
 
 @keyframes personagem{
-    0%{top: 150px;}
-    30%{top: 100px;}
-    70%{top: 100px;}
-    100%{top: 150px;}
+0%{top: 75%;}
+30%{top: 50%;}
+70%{top: 50%;}
+100%{top: 75%;}
 }
 
 #quadrado{
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    position: relative;   
-    top: 130px;
-    left: 480px;
-    animation: quadrado 1s infinite linear;
+width: 4%; /* Definindo a largura como 4% da largura do elemento pai (#game) */
+height: 10%; /* Definindo a altura como 10% da altura do elemento pai (#game) */
+background-color: blue;
+position: relative;   
+top: 65%; /* Definindo a posição vertical */
+left: 96%; /* Definindo a posição horizontal */
+animation: quadrado 1s infinite linear; /* Aumentei a duração da animação */
 }
 
 @keyframes quadrado{
-    0%{left: 480px;}
-    100%{left: -40px;}
+0%{left: 96%;}
+100%{left: -4%;}
 }
-
