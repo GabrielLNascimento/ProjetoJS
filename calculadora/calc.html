@@ -111,13 +111,16 @@
     var calculadoRecentemente = false;
 
     function clicar(num) {
+
         var resultado = document.getElementById('resultado');
-        
-        if (calculadoRecentemente) {
+
+        // verifica se a variavel calculadoRecentente é true ou false
+        if(calculadoRecentemente) {  // se for true = executa essa
             resultado.innerHTML = num;
             calculadoRecentemente = false;
-        } else {
-            resultado.innerHTML += num;
+
+        } else { // se for false = executa essa
+            resultado.innerHTML += num
         }
     }
 
@@ -131,14 +134,13 @@
     }
 
     function calcular() {
-        var resultado = document.getElementById('resultado');
+        var resultado = document.getElementById('resultado').innerHTML
         var expressao = resultado.innerHTML.trim();
-
         if (expressao) {
-            resultado.innerHTML = eval(expressao);
+            resultado.innerHTML = eval(expressao)
             calculadoRecentemente = true;
         } else {
-            window.alert('Digite um número ou expressão válida.');
+            window.alert('digite um número valido')
         }
     }
 
