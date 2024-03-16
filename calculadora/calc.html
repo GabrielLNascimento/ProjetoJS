@@ -69,7 +69,7 @@
     
     <div class="calculadora">
         <h3>Calculadora</h3>
-        <div id="resultado"></div>
+        <div id="resultado"> </div>
         <table>
             <tr>
                 <td><button class="botao" onclick="clean()">C</button></td>
@@ -107,27 +107,38 @@
     
 </body>
 <script>
+        
+    var calculadoRecentemente = false;
 
     function clicar(num) {
-        document.getElementById('resultado').innerHTML += num
+        var resultado = document.getElementById('resultado');
+        
+        if (calculadoRecentemente) {
+            resultado.innerHTML = num;
+            calculadoRecentemente = false;
+        } else {
+            resultado.innerHTML += num;
+        }
     }
 
     function clean() {
-        document.getElementById('resultado').innerHTML = " "
+        document.getElementById('resultado').innerHTML = "";
     }
 
     function back() {
         var resultado = document.getElementById('resultado').innerHTML;
-        document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
+        document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length - 1);
     }
 
-    function calcular(){
-        var resultado = document.getElementById('resultado').innerHTML
+    function calcular() {
+        var resultado = document.getElementById('resultado');
+        var expressao = resultado.innerHTML.trim();
 
-        if(resultado) {
-            document.getElementById('resultado').innerHTML = eval(resultado)
+        if (expressao) {
+            resultado.innerHTML = eval(expressao);
+            calculadoRecentemente = true;
         } else {
-            window.alert('digite um número')
+            window.alert('Digite um número ou expressão válida.');
         }
     }
 
