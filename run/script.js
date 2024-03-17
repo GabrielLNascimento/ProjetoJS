@@ -1,5 +1,6 @@
 let personagem = document.querySelector('#personagem')
 let quadrado = document.querySelector('#quadrado')
+let intervaloColisao;
 
 function pular(){
     if(personagem.classList != 'animar'){
@@ -10,6 +11,8 @@ function pular(){
         personagem.classList.remove('animar')
     }, 500)
 }
+
+
 
 var testarColisao = setInterval( function(){
 
@@ -28,3 +31,5 @@ var testarColisao = setInterval( function(){
     
 
 }, 10)
+
+ 
