@@ -1,6 +1,7 @@
 let personagem = document.querySelector('#personagem')
 let quadrado = document.querySelector('#quadrado')
 let intervaloColisao;
+let frase = document.getElementById('res')
 
 function pular(){
     if(personagem.classList != 'animar'){
@@ -10,6 +11,14 @@ function pular(){
     setTimeout(function(){
         personagem.classList.remove('animar')
     }, 500)
+}
+
+function comecar() {
+    if(quadrado.classList != 'animarQ'){
+        quadrado.classList.add('animarQ')
+        document.getElementById('res').innerHTML = ' '
+        frase.classList.remove('res')
+    }
 }
 
 
@@ -24,9 +33,11 @@ var testarColisao = setInterval( function(){
        )
 
        if(EsquerdaQuadrado < 20 && EsquerdaQuadrado > 0 && topoPersonagem >= 130){
-        quadrado.style.animation = 'none'
-        quadrado.style.display = 'none'
-        alert('Você perdeu!')
+        frase.classList.add('res')
+        document.getElementById('res').innerHTML = 
+        'Você perdeu... clique no botão (comecar) para recomeçar o jogo'
+        quadrado.classList.remove('animarQ')
+
     }
     
 
