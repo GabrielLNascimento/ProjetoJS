@@ -18,6 +18,7 @@ function comecar() {
         quadrado.classList.add('animarQ')
         document.getElementById('res').innerHTML = ' '
         frase.classList.remove('res')
+        document.documentElement.onclick = pular; // Adiciona evento onclick ao html
     }
 }
 
