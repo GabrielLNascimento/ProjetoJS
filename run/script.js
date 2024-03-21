@@ -14,14 +14,32 @@ function pular(){
 }
 
 function comecar() {
-    if(quadrado.classList != 'animarQ'){
-        quadrado.classList.add('animarQ')
-        document.getElementById('res').innerHTML = ' '
-        frase.classList.remove('res')
-        document.documentElement.onclick = pular; // Adiciona evento onclick ao html
-    }
+    iniciarcontagem(3); // Inicia a contagem regressiva a partir de 3 segundos
 }
 
+function iniciarcontagem(segundos) {
+    const contador = document.getElementById('contador');
+    contador.textContent = segundos;
+
+    if (segundos > 0) {
+        setTimeout(() => {
+            iniciarcontagem(segundos - 1); // Chama a função novamente com o próximo segundo
+        }, 1000); // Aguarda 1 segundo (1000 milissegundos)
+    } else {
+        
+        if (quadrado.classList != 'animarQ') {
+            quadrado.classList.add('animarQ');
+            document.getElementById('res').innerHTML = ' ';
+            frase.classList.remove('res');
+            document.documentElement.onclick = pular; // Adiciona evento onclick ao html
+            contador.textContent = ' '
+            
+        }
+        var inicio = document.getElementById('res')
+        inicio.classList.add('res')
+        document.getElementById('res').innerHTML = 'Começou!!'
+    }
+}
 
 
 var testarColisao = setInterval( function(){
