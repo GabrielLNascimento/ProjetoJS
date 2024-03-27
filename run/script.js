@@ -2,6 +2,9 @@ let personagem = document.querySelector('#personagem')
 let quadrado = document.querySelector('#quadrado')
 let intervaloColisao;
 let frase = document.getElementById('res')
+let pontos = 0
+let intervaloPontos;
+
 
 function pular(){
     if(personagem.classList != 'animar'){
@@ -11,10 +14,13 @@ function pular(){
     setTimeout(function(){
         personagem.classList.remove('animar')
     }, 500)
+
+    
 }
 
 function comecar() {
     iniciarcontagem(3); // Inicia a contagem regressiva a partir de 3 segundos
+    
 }
 
 function iniciarcontagem(segundos) {
@@ -32,12 +38,13 @@ function iniciarcontagem(segundos) {
             document.getElementById('res').innerHTML = ' ';
             frase.classList.remove('res');
             document.documentElement.onclick = pular; // Adiciona evento onclick ao html
-            contador.textContent = ' '
+            contador.textContent = '0'
             
         }
         var inicio = document.getElementById('res')
         inicio.classList.add('res')
         document.getElementById('res').innerHTML = 'Começou!!'
+        intervaloPontos = setInterval(atualizarpontos, 1000)
     }
 }
 
@@ -47,7 +54,7 @@ var testarColisao = setInterval( function(){
     var topoPersonagem = parseInt(
      window.getComputedStyle(personagem).getPropertyValue('top')
     )
-    var EsquerdaQuadrado = parseInt(
+    EsquerdaQuadrado = parseInt(
         window.getComputedStyle(quadrado).getPropertyValue('left')
        )
 
@@ -56,10 +63,19 @@ var testarColisao = setInterval( function(){
         document.getElementById('res').innerHTML = 
         'Você perdeu... clique no botão (comecar) para recomeçar o jogo'
         quadrado.classList.remove('animarQ')
-
-    }
-    
-
+        pausar()
+        }      
+        
 }, 10)
+
+function atualizarpontos() {
+    pontos += 10
+    document.getElementById('pontos').textContent = 'Pontos: ' + pontos
+}
+
+function pausar(){
+    clearInterval(intervaloPontos);
+}
+
 
  
